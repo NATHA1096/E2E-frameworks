@@ -7,7 +7,7 @@ let page;
 
 beforeAll (async () => {
   jest.setTimeout(50000);
-  browser = await puppeteer.launch({headless: false});
+  browser = await puppeteer.launch({headless: true});
   page = await browser.newPage();
   await page.goto(APP, {waitUntil: 'networkidle2'});
   page.once('load', () => console.log('Page loaded!'));
