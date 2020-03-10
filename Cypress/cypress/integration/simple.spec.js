@@ -3,12 +3,14 @@
 describe('Los estudiantes login', function () {
   it('Visits los estudiantes and pass at login', function () {
     cy.visit('https://losestudiantes.co')
+    cy.screenshot()
     cy.contains('Cerrar').click()
     //Lineas nuevas  
     cy.contains('Ingresar').click()
     cy.get('.cajaLogIn').find('input[name="correo"]').click().type("jmauriciopv@gmail.com")
     cy.get('.cajaLogIn').find('input[name="password"]').click().type("01010101")
     cy.get('.cajaLogIn').contains('Ingresar').click()
+    cy.screenshot()
     cy.contains('Busca y califica profesores y clases anónimamente')
   })
 });
@@ -53,22 +55,25 @@ describe('Los estudiantes Registro con cuenta existente', function () {
 describe('Los estudiantes Busqueda Profesores', function () {
   it('Visits los estudiantes and search a teacher', function () {
     cy.visit('https://losestudiantes.co')
+    cy.screenshot()
     cy.contains('Cerrar').click()
 
     cy.get('div[class="Select-placeholder"]').click()
     cy.get('input').type("Mario Linares")
     cy.get('div[id="react-select-required_error_checksum--option-0"]').contains("Mario Linares")
+    cy.screenshot()
   })
 });
 
 describe('Los estudiantes Dirigirse a Profesor', function () {
   it('Visits los estudiantes and go to a teacher page', function () {
     cy.visit('https://losestudiantes.co')
+    cy.screenshot()
     cy.contains('Cerrar').click()
 
     cy.get('div[class="Select-placeholder"]').click()
     cy.get('input').type("Pruebas Automaticas")
     cy.get('div[id="react-select-required_error_checksum--option-0"]').contains("MISO4208")
-
+    cy.screenshot()
   })
 });
